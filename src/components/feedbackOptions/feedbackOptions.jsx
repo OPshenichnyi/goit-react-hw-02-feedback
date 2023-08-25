@@ -1,7 +1,8 @@
-export const FeedbackOptions = ({ onLeaveFeedback, options}) => {
+import { ContainerFeedback } from "./feedbackOptions.styled"
+export const FeedbackOptions = ({ onLeaveFeedback, options }) => {
    
     return (
-        <div>
+        <ContainerFeedback>
            
             <button type="button"
                 onClick={onLeaveFeedback}
@@ -17,6 +18,6 @@ export const FeedbackOptions = ({ onLeaveFeedback, options}) => {
                 onClick={onLeaveFeedback}
                 value={options.bad}
             >Bad</button>
-        </div>
+        </ContainerFeedback>
     )
 }
