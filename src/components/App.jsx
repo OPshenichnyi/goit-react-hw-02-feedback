@@ -1,4 +1,5 @@
-
+import { Statistics } from "components/statistics/statistics";
+import { FeedbackOptions } from "components/feedbackOptions/feedbackOptions";
 import { Component } from "react";
 import { SectionTitle } from "./sectionTitle/sectionTitle";
 
@@ -6,7 +7,7 @@ export class App extends Component{
   state = {
     good: 0,
     neutral: 0,
-    bad: 0
+    bad: 0,
   }
 
   handlerButtonFeedback = ({ target: { value } }) => {
@@ -35,14 +36,23 @@ export class App extends Component{
       }}
       >
         <SectionTitle
-          onLeaveFeedback={this.handlerButtonFeedback}
-          options={{ good: 'good', neutral: 'neutral', bad: 'bad' }}
-          good={this.state.good}
-          neutral={this.state.neutral}
-          bad={this.state.bad}
-          countTotalFeedback={this.countTotalFeedback}
-          countPositiveFeedbackPercentage={this.countPositiveFeedbackPercentage}
-        ></SectionTitle>
+          tytle="Please leave feedback"
+        >
+          <FeedbackOptions
+            onLeaveFeedback={this.handlerButtonFeedback}
+            options={this.state}
+          ></FeedbackOptions>
+
+          {this.state.good + this.state.bad + this.state.neutral > 0 ?
+            (<Statistics
+              good={this.state.good}
+              neutral={this.state.neutral}
+              bad={this.state.bad}
+              countTotalFeedback={this.countTotalFeedback}
+              countPositiveFeedbackPercentage={this.countPositiveFeedbackPercentage}
+            ></Statistics>) : (<p>There is no feedback</p>)}  
+        
+        </SectionTitle>
  
     </div>
   );

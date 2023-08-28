@@ -1,23 +1,17 @@
 import { ContainerFeedback } from "./feedbackOptions.styled"
+
+
 export const FeedbackOptions = ({ onLeaveFeedback, options }) => {
-   
+    const keysOptions = Object.keys(options)
     return (
-        <ContainerFeedback>
-           
-            <button type="button"
-                onClick={onLeaveFeedback}
-                value={options.good}
-            >Good</button>
-
-            <button type="button"
-                onClick={onLeaveFeedback}
-                value={options.neutral}
-            >Neutral</button>
-
-            <button type="button"
-                onClick={onLeaveFeedback}
-                value={options.bad}
-            >Bad</button>
+        <ContainerFeedback>          
+            {keysOptions.map((option) => (
+                <button type="button"
+                    key={option}
+                    onClick={onLeaveFeedback}
+                    value={option}
+                >{option.charAt(0).toUpperCase() + option.slice(1)}</button>
+            ))} 
         </ContainerFeedback>
     )
 }
