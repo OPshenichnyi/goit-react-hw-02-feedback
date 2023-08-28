@@ -10,6 +10,5 @@ export const Statistics = ({ good, neutral, bad, countTotalFeedback, countPositi
             <p>Total:{countTotalFeedback()}</p>
             <p>Positive feedback: {countPositiveFeedbackPercentage()} %</p>
             </div>
-
   )
 }
