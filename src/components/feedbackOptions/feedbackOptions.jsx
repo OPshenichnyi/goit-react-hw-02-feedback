@@ -1,4 +1,4 @@
-import { ContainerFeedback } from "./feedbackOptions.styled"
+import { ContainerFeedback } from "./FeedbackOptions.styled"
 
 
 export const FeedbackOptions = ({ onLeaveFeedback, options }) => {
